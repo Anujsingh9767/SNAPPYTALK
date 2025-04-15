@@ -7,13 +7,14 @@ import cookieParser from "cookie-parser"
 
 const app =express()
 app.use(express.json())
+app.use(cookieParser())
 
 dotenv.config()
 
 const PORT =process.env.PORT;
 
 app.use("/api/auth",authRoutes)
-app.use(cookieParser())
+
 //extract the json data
 
 const port =5001;
