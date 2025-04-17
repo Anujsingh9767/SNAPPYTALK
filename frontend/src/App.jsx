@@ -7,6 +7,7 @@ import SettingsPage from './pages/SettingsPage'
 import SignUpPage from './pages/SignUpPage'
 
 import {Loader} from "lucide-react"
+import {Toaster} from "react-hot-toast";
 
 
 import { Routes , Route, Navigate } from 'react-router-dom'
@@ -33,6 +34,7 @@ function App() {
   return (
     <div >
        <Navbar/>
+       
        <Routes>
          <Route path='/' element={authUser ? <HomePage/> : <Navigate to="/login" />} />
          <Route path='/signup' element={!authUser ? <SignUpPage/>  :<Navigate to="/" />}  />
@@ -41,6 +43,8 @@ function App() {
          
          <Route path='/profile' element={<ProfilePage/>} />
        </Routes>
+
+       <Toaster/>
     </div>
   )
 }
