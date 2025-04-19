@@ -7,13 +7,7 @@ import { connectDB } from "./lib/db.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 
-const app =express()
-
-
-
-
-
-
+import {app,server} from "./lib/socket.js"
 
 
 
@@ -39,7 +33,7 @@ app.use("/api/auth",authRoutes)
 app.use("/api/message",messageRoutes)
 //extract the json data
 const port =5001;
-app.listen(PORT , ()=>{
+server.listen(PORT , ()=>{
     console.log(`server is running on port ${PORT} `)
     connectDB();
 })
